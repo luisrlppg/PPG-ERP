@@ -1,0 +1,15 @@
+services:
+  odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile # Optional if it's named Dockerfile
+    depends_on:
+      - odoodb
+    ports:
+      - "8069:8069"
+  odoodb:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
