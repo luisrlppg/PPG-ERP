@@ -1,4 +1,10 @@
 services:
+  odoodb:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
   odoo:
     build:
       context: .
@@ -7,9 +13,4 @@ services:
       - odoodb
     ports:
       - "8069:8069"
-  odoodb:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=odoo
-      - POSTGRES_USER=odoo
+

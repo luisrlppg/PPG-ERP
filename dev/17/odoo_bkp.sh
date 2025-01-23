@@ -1,21 +1,26 @@
 #!/bin/bash
 
-# Variables
-DATE=$(date +"%Y%m%d_%H%M%S")
-# Ruta en share 192.168.1.178/share
-BACKUP_DIR="mnt/share/Central de Documentos/odoo/backups"
-DB_CONTAINER_NAME="id_proceso_contenedor_postgres"
-DB_NAME="postgres"
-DB_USER="odoo"
-DB_PASSWORD="odoo"
+# URL de la ruta en tu servidor Odoo
+url="http://localhost:8069/web/database/backup"  # Sin espacios alrededor del "="
 
-# Crea el directorio de respaldo si no existe
-mkdir -p $BACKUP_DIR
+# Parámetros
+master_pwd="hbh9-s6iu-ksp4"  # Sustituye con la contraseña del superusuario
+name="ppg"   # Sustituye con el nombre de la base de datos
+backup_format="zip"  # Formato del respaldo (opcional)
 
-# Realiza el respaldo
-docker exec -t $DB_CONTAINER_NAME pg_dump -U $DB_USER $DB_NAME > $BACKUP_DIR/odoo_backup_$DATE.sql
+# Ruta donde deseas guardar el archivo de respaldo
+output_path="./backup.zip"  # Usar comillas si la ruta contiene espacios
 
-# Limpia respaldos antiguos (mantén solo los últimos 7 días)
-# find $BACKUP_DIR -type f -name "*.sql" -mtime +7 -exec rm {} \;
+# Realizar la solicitud POST y descargar el archivo directamente
+curl -X POST "$url" \
+  -d "master_pwd=$master_pwd" \
+  -d "name=$name" \
+  -d "backup_format=$backup_format" \
+  -o "$output_path"
 
-echo "Respaldo realizado: $BACKUP_DIR/odoo_backup_$DATE.sql"
+# Verificar si la descarga fue exitosa
+if [ $? -eq 0 ]; then
+  echo "Backup descargado exitosamente en $output_path"
+else
+  echo "Error al descargar el backup"
+fi
