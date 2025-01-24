@@ -10,4 +10,5 @@ After that you can execute the script under.
 add this script to crontab -e
 
 Example:
+
     30 2 * * * ./scripts/odoo_bkp.sh
