@@ -1,5 +1,9 @@
 # Description
 
+This repo contains all the information needed to install odoo in our outside a container.
+Docker container for ubuntu 24.04 and 22.04 (docker container for Ubuntu22.04 does not support backups so try to avoid using it).
+The project was deployed in Ubuntu18.04 using the medusa server. 192.168.1.160
+
 ## SETUP
 
 Once cloned run the command
