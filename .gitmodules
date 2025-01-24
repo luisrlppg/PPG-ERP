@@ -1,6 +1,3 @@
-[submodule "docker/dev/17/docker/dev/17/wait-for-it"]
-	path = docker/dev/17/docker/dev/17/wait-for-it
-	url = git@github.com:vishnubob/wait-for-it.git
 [submodule "docker/dev/17/odoo"]
 	path = docker/dev/17/odoo
 	url = git@github.com:luisrlppg/odoo.git
