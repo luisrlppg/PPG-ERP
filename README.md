@@ -5,12 +5,15 @@ Docker container for ubuntu 24.04 and 22.04 (docker container for Ubuntu22.04 do
 The project was deployed in Ubuntu18.04 using the medusa server. 192.168.1.160
 
 ## SETUP
+Clone the repo
+
+	git clone https://github.com/luisrlppg/PPG-ERP.git
 
 Once cloned run the command
-
+	cd PPG-ERP
 	./initrepo.sh
 
-after all submodules are cloned
+If you want to start the docker container do:
 
 	cd ./docker/dev/17/
 	docker compose up -d
