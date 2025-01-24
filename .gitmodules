@@ -2,3 +2,4 @@
     path = docker/dev/17/odoo
     url = https://github.com/luisrlppg/odoo.git
     branch = 17.0
+	shallow = true
