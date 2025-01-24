@@ -7,7 +7,7 @@ The project was deployed in Ubuntu18.04 using the medusa server. 192.168.1.160
 ## SETUP
 Clone the repo
 
-	git clone https://github.com/luisrlppg/PPG-ERP.git
+	git clone --recurse-submodules https://github.com/luisrlppg/PPG-ERP.git
 
 Once cloned run the command
 
