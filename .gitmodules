@@ -1,4 +1,4 @@
 [submodule "docker/dev/17/odoo"]
 	path = docker/dev/17/odoo
-	url = git@github.com:luisrlppg/odoo.git
+	url = https://github.com/luisrlppg/PPG-ERP
 	branch = 17.0
