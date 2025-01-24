@@ -39,7 +39,6 @@ EXPOSE 8069
 
 RUN set -x && pwd && ls
 
-COPY wait-for-it/wait-for-it.sh .
 RUN chmod +x ./wait-for-it.sh
 
 # Set the default command (change as needed for your use case)
