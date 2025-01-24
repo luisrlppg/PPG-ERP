@@ -1,0 +1,19 @@
+python odoo-bin --addons-path addons,odoo/addons,custom_addons -w password -r user -d dbname --xmlrpc-port 8069
+
+# creating configuration file
+python odoo-bin -s -c odoo.conf --addons-path addons,odoo/addons,custom_addons -w password -r user -d dbname --xmlrpc-port 8069
+
+python odoo-bin -s -c odoo.conf -r ppg -w ppg --xmlrpc-port 8069
+
+python odoo-bin -s -c odoo.conf
+python odoo-bin -c odoo.conf --no-database-list
+python odoo-bin scaffold student
+./odoo-bin scaffold school
+python oodo-bin scaffold --help
+python odoo-bin scaffold school custom_addons/.
+# to copy a model use -t as template specify the path at the end
+./odoo-bin scaffold -t custom_addons/school copy_school .
+./odoo-bin scaffold -t custom_addons/school copy_school .
+# executable | configuration file | database name | updgrade option model 
+python odoo-bin -c odoo.conf -d odoo17 -u student
+
