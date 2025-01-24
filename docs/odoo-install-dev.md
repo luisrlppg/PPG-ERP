@@ -73,28 +73,24 @@ python odoo-bin
 # 15. Arrancar odoo junto con el sistema operativo
 	- 1. Utiliza el comando: sudo nano /etc/systemd/system/odoo.service
 	- 2. Añade el siguiente texto
-	´´´bash
-	[Unit]
-	Description=Odoo ERP
-	Documentation=http://localhost:8069
-	After=network.target
 
-	[Service]
-	User=luisrlp
-	Group=luisrlp
-	ExecStart=/bin/bash -c 'source ~/dev/venvs/venvodoo17/bin/activate && python ~/dev/erp/odoo-versions/odoo17/odoo-bin -c ~/dev/erp/odoo-versions/odoo17/odoo.conf'
-	Restart=always
-	RestartSec=5
-	StandardOutput=journal
-	StandardError=journal
+		[Unit]
+		Description=Odoo ERP
+		Documentation=http://localhost:8069
+		After=network.target
 
-	[Install]
-	WantedBy=multi-user.target
-	´´´
+		[Service]
+		User=luisrlp
+		Group=luisrlp
+		ExecStart=/bin/bash -c 'source ~/dev/venvs/venvodoo17/bin/activate && python ~/dev/erp/odoo-versions/odoo17/odoo-bin -c ~/dev/erp/odoo-versions/odoo17/odoo.conf'
+		Restart=always
+		RestartSec=5
+		StandardOutput=journal
+		StandardError=journal
+
+		[Install]
+		WantedBy=multi-user.target
+
 	3. sudo systemctl daemon-reload
 	4. sudo systemctl start odoo.service
 	5. sudo systemctl enable odoo.service
-
-# 16. Crear respaldos
-	1. clona el siguiente repo: https://github.com/luisrlppg/PPG-ERP
-	2. 
