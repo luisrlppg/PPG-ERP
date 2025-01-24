@@ -10,6 +10,7 @@ Clone the repo
 	git clone https://github.com/luisrlppg/PPG-ERP.git
 
 Once cloned run the command
+
 	cd PPG-ERP
 	./initrepo.sh
 
