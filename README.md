@@ -9,15 +9,14 @@ Clone the repo
 
 	git clone --recurse-submodules https://github.com/luisrlppg/PPG-ERP.git
 
-Once cloned run the command
-
-	cd PPG-ERP
-	./initrepo.sh
-
 If you want to start the docker container do:
 
-	cd ./docker/dev/17/
+	cd PPG-ERP/docker/dev/17/
 	docker compose up -d
+
+In case you did not used --recurse-submodules when cloning, run:
+
+	git pull --recurse-submodules origin main
 
 go to /main/docs/ and check odoo-install-dev.md for references for installing
 odoo out of docker
