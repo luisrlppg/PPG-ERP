@@ -1,3 +1,0 @@
-[submodule "docker/dev/17/odoo/OdooRelease"]
-	path = docker/dev/17/odoo/
-	url = https://github.com/luisrlppg/OdooRelease
