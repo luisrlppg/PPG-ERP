@@ -24,7 +24,7 @@ RUN apt-get install -y python3.12-venv
 RUN apt-get install -y postgresql-client
 
 # Set the working directory inside the container
-WORKDIR /odoo
+WORKDIR /OdooRelease
 
 # Copy your application code into the container
 COPY . .
@@ -42,4 +42,4 @@ RUN set -x && pwd && ls
 RUN chmod +x ./wait-for-it.sh
 
 # Set the default command (change as needed for your use case)
-CMD ["./wait-for-it.sh", "odoodb:5432","--","./venv/bin/python", "./odoo/odoo-bin","--db_host","odoodb","--db_user","odoo","--db_password","odoo"]
+CMD ["./wait-for-it.sh", "odoodb:5432","--","./venv/bin/python", "./OdooRelease/odoo-bin","--db_host","odoodb","--db_user","odoo","--db_password","odoo"]
