@@ -13,4 +13,4 @@ services:
       - odoodb
     ports:
       - "8069:8069"
-
+      
