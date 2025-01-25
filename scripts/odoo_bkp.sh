@@ -4,12 +4,12 @@
 url="http://localhost:8069/web/database/backup"  # Sin espacios alrededor del "="
 
 # Parámetros
-master_pwd="hbh9-s6iu-ksp4"  # Sustituye con la contraseña del superusuario
+master_pwd="99va-945r-dca7"  # Sustituye con la contraseña del superusuario
 name="ppg"   # Sustituye con el nombre de la base de datos
 backup_format="zip"  # Formato del respaldo (opcional)
 
 # Ruta donde deseas guardar el archivo de respaldo
-output_path="./backup.zip"  # Usar comillas si la ruta contiene espacios
+output_path="./backups/backup.zip"  # Usar comillas si la ruta contiene espacios
 
 # Realizar la solicitud POST y descargar el archivo directamente
 curl -X POST "$url" \
