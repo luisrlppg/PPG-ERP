@@ -32,7 +32,7 @@ COPY . .
 # Install Odoo dependencies
 RUN python3.12 -m venv venv
 RUN ./venv/bin/pip install -U pip setuptools wheel
-RUN ./venv/bin/pip install -r ./odoo/requirements.txt
+RUN ./venv/bin/pip install -r ./OdooRelease/requirements.txt
 
 # Expose the default Odoo port
 EXPOSE 8069
