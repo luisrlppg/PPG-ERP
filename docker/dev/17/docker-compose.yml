@@ -1,6 +1,7 @@
 services:
   odoodb:
     image: postgres:15
+    restart: always  # This ensures it restarts on failure or system reboot
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
@@ -9,8 +10,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile # Optional if it's named Dockerfile
+    restart: always  # This ensures it restarts on failure or system reboot
     depends_on:
       - odoodb
     ports:
       - "8069:8069"
-      
+    

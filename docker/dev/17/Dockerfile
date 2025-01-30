@@ -10,7 +10,7 @@ RUN apt-get update && apt-get upgrade -y && \
     software-properties-common curl build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
     python3-dev libxml2-dev libxslt1-dev libsasl2-dev libldap2-dev libffi-dev libmysqlclient-dev libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev \
-    xz-utils tk-dev libffi-dev liblzma-dev python3-pip \
+    xz-utils tk-dev libffi-dev liblzma-dev python3-pip postgresql-server-dev-all \
     npm node-less &&\
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
