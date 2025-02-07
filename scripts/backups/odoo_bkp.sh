@@ -13,7 +13,7 @@ current_date=$(date +"%Y-%m-%d")
 turno="$1$current_date"
 
 # Ruta donde deseas guardar el archivo de respaldo
-output_path="./backups/backup_$turno.zip"  # Usar comillas si la ruta contiene espacios
+output_path="/home/luisrlp/erp/PPG-ERP/scripts/backups/bkpfiles/backup_$turno.zip"  # Usar comillas si la ruta contiene espacios
 
 # Realizar la solicitud POST y descargar el archivo directamente
 curl -X POST "$url" \
@@ -25,7 +25,7 @@ curl -X POST "$url" \
 # Verificar si la descarga fue exitosa
 if [ $? -eq 0 ]; then
   echo "Backup descargado exitosamente en $output_path"
-  #sudo cp "$output_path" "$dest"
+  cp "$output_path" "$dest"
 else
   echo "Error al descargar el backup"
 fi
