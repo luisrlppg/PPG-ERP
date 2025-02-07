@@ -1,4 +1,7 @@
-backups/
 masspass.txt
 *.sql
 *.zip
+scripts/importing/inventory
+*.xlsx
+*.csv
+*.docx

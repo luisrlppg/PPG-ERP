@@ -1,0 +1,73 @@
+2025-01-30 17:46:10,286 1 INFO ppg werkzeug: 172.18.0.1 - - [30/Jan/2025 17:46:10] "POST /web/dataset/call_kw/stock.picking.type/web_search_read HTTP/1.1" 200 - 16 0.005 0.008
+2025-01-30 17:47:00,033 1 WARNING ? odoo.service.server: Thread <Thread(odoo.service.http.request.139803296310976, started 139803296310976)> virtual real time limit (141/120s) reached.
+2025-01-30 17:47:00,033 1 INFO ? odoo.service.server: Dumping stacktrace of limit exceeding threads before reloading
+2025-01-30 17:47:00,034 1 INFO ? odoo.tools.misc:
+# Thread: <Thread(odoo.service.http.request.139803296310976, started 139803296310976)> (db:n/a) (uid:n/a) (url:n/a) (qc:n/a qt:n/a pt:n/a)
+File: "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+  self._bootstrap_inner()
+File: "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+  self.run()
+File: "/usr/lib/python3.12/threading.py", line 1010, in run
+  self._target(*self._args, **self._kwargs)
+File: "/usr/lib/python3.12/socketserver.py", line 692, in process_request_thread
+  self.finish_request(request, client_address)
+File: "/usr/lib/python3.12/socketserver.py", line 362, in finish_request
+  self.RequestHandlerClass(request, client_address, self)
+File: "/usr/lib/python3.12/socketserver.py", line 761, in __init__
+  self.handle()
+File: "/OdooRelease/venv/lib/python3.12/site-packages/werkzeug/serving.py", line 390, in handle
+  super().handle()
+File: "/usr/lib/python3.12/http/server.py", line 436, in handle
+  self.handle_one_request()
+File: "/usr/lib/python3.12/http/server.py", line 404, in handle_one_request
+  self.raw_requestline = self.rfile.readline(65537)
+File: "/usr/lib/python3.12/socket.py", line 707, in readinto
+  return self._sock.recv_into(b)
+2025-01-30 17:47:00,035 1 INFO ? odoo.service.server: Initiating server reload
+2025-01-30 17:47:00,344 1 ERROR ppg odoo.sql_db: bad query: UPDATE "bus_presence" SET "status" = 'offline' WHERE id IN (3)
+ERROR: could not serialize access due to concurrent update
+
+2025-01-30 17:47:00,378 1 ERROR ppg odoo.addons.bus.websocket: could not serialize access due to concurrent update
+
+Traceback (most recent call last):
+  File "/OdooRelease/OdooRelease/addons/bus/websocket.py", line 317, in get_messages
+    message = self._process_next_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/OdooRelease/OdooRelease/addons/bus/websocket.py", line 463, in _process_next_message
+    self._handle_control_frame(frame)
+  File "/OdooRelease/OdooRelease/addons/bus/websocket.py", line 601, in _handle_control_frame
+    self._terminate()
+  File "/OdooRelease/OdooRelease/addons/bus/websocket.py", line 582, in _terminate
+    with acquire_cursor(self._db) as cr:
+  File "/OdooRelease/OdooRelease/odoo/sql_db.py", line 179, in __exit__
+    self.commit()
+  File "/OdooRelease/OdooRelease/odoo/sql_db.py", line 472, in commit
+    self.flush()
+  File "/OdooRelease/OdooRelease/odoo/sql_db.py", line 137, in flush
+    self.transaction.flush()
+  File "/OdooRelease/OdooRelease/odoo/api.py", line 863, in flush
+    env_to_flush.flush_all()
+  File "/OdooRelease/OdooRelease/odoo/api.py", line 723, in flush_all
+    self[model_name].flush_model()
+  File "/OdooRelease/OdooRelease/odoo/models.py", line 6342, in flush_model
+    self._flush(fnames)
+  File "/OdooRelease/OdooRelease/odoo/models.py", line 6443, in _flush
+    model.browse(ids)._write(vals)
+  File "/OdooRelease/OdooRelease/odoo/models.py", line 4540, in _write
+    cr.execute(SQL(
+  File "/OdooRelease/OdooRelease/odoo/sql_db.py", line 332, in execute
+    res = self._obj.execute(query, params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.SerializationFailure: could not serialize access due to concurrent update
+
+2025-01-30 17:47:00,429 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 6 connections
+Traceback (most recent call last):
+  File "/OdooRelease/./OdooRelease/odoo-bin", line 5, in <module>
+    import odoo
+  File "/OdooRelease/OdooRelease/odoo/__init__.py", line 115, in <module>
+    from . import modules
+  File "/OdooRelease/OdooRelease/odoo/modules/__init__.py", line 8, in <module>
+    from . import db, graph, loading, migration, module, registry, neutralize
+  File "/OdooRelease/OdooRelease/odoo/modules/db.py", line 4, in <module>
+    from psycopg2.extras import Json
+ModuleNotFoundError: No module named 'psycopg2'
