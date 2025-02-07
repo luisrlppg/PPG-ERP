@@ -1,7 +1,7 @@
 masspass.txt
 *.sql
 *.zip
-scripts/importing/inventory
 *.xlsx
 *.csv
 *.docx
+scripts/importing/inventory
