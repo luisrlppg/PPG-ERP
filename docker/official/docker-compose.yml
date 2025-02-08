@@ -10,7 +10,7 @@ services:
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
     environment:
-      - HOST=mydb
+      - HOST=db
       - USER=odoo
       - PASSWORD=myodoo
   db:
