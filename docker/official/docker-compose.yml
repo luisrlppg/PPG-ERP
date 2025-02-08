@@ -12,12 +12,12 @@ services:
     environment:
       - HOST=db
       - USER=odoo
-      - PASSWORD=ppgodoo
+      - PASSWORD=odoo
   db:
     image: postgres:15
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=ppgodoo
+      - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
